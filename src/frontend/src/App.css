@@ -1,0 +1,37 @@
+.App {
+	text-align: center;
+	padding: 20px;
+  }
+  
+  .dashboard {
+	max-width: 1200px;
+	margin: 0 auto;
+  }
+  
+  .alert-feed {
+	display: grid;
+	gap: 1rem;
+	padding: 1rem;
+  }
+  
+  .alert {
+	border: 1px solid #ccc;
+	border-radius: 8px;
+	padding: 1rem;
+	text-align: left;
+  }
+  
+  .alert-critical {
+	background-color: #ffebee;
+	border-color: #ff5252;
+  }
+  
+  .alert-warning {
+	background-color: #fff3e0;
+	border-color: #ff9100;
+  }
+  
+  .alert-info {
+	background-color: #e3f2fd;
+	border-color: #42a5f5;
+  }

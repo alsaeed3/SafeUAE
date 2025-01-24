@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+  redis:
+    image: redis:alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    ports:
+      - "8000:8000"
+    depends_on:
+      - redis
+    environment:
+      - REDIS_HOST=redis
+
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+
+  sensors:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    command: python simulation/simulate_sensors.py
+    depends_on:
+      - backend
+      - redis
+
+  social:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    command: python simulation/simulate_social_media.py
+    depends_on:
+      - backend
+      - redis
+
+volumes:
+  redis_data:
