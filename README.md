@@ -23,7 +23,13 @@ AI-powered emergency response system using multiple collaborating agents for:
 ## Running the System
 ```bash
 # Start core services
-docker-compose up --build
+make
+
+# Shutdown the containers
+make down
+
+# Full Clean
+make clean
 
 # In separate terminals:
 python simulation/simulate_sensors.py
