@@ -1,6 +1,6 @@
 # SafeUAE - Real-Time Public Safety Coordination System
 
-SafeUAE is a project meant to be as a contribution by mr. Emran Bin Jamaan, mr. Martin Lumibao, from 42 Abu Dhabi
+SafeUAE is a project meant to be as a contribution to SambaNova Hackathon by mr. Emran Bin Jamaan, mr. Martin Lumibao, and I from 42 Abu Dhabi.
 
 ## Overview
 AI-powered emergency response system using multiple collaborating agents for:
@@ -23,7 +23,13 @@ AI-powered emergency response system using multiple collaborating agents for:
 ## Running the System
 ```bash
 # Start core services
-docker-compose up --build
+make
+
+# Shutdown the containers
+make down
+
+# Full Clean
+make clean
 
 # In separate terminals:
 python simulation/simulate_sensors.py
