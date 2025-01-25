@@ -2,6 +2,7 @@ import random
 import time
 import websockets
 import asyncio
+import json
 
 async def send_sensor_data():
     async with websockets.connect('ws://localhost:8000/ws') as ws:

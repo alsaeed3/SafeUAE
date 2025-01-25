@@ -2,7 +2,11 @@ from fastapi import FastAPI, WebSocket
 from fastapi.middleware.cors import CORSMiddleware
 import redis
 import json
-from agents import *
+from agents.incident_detection import IncidentDetector
+from agents.prediction_agent import PredictionAgent
+from agents.public_alert import PublicAlert
+from agents.resource_allocation import ResourceAllocator
+from agents.sensor_aggregation import SensorAggregator
 
 app = FastAPI()
 
@@ -29,6 +33,13 @@ async def handle_message(data, ws):
         response = await IncidentDetector.process(data)
     elif agent_type == 'sensor':
         response = await SensorAggregator.process(data)
-    # Add other agents...
+    elif agent_type == 'prediction':
+        response = await PredictionAgent.process(data)
+    elif agent_type == 'public':
+        response = await PublicAlert.process(data)
+    elif agent_type == 'resource':
+        response = await ResourceAllocator.process(data)
+    else:
+        response = {"error": "Unknown data type"}
     
     await ws.send_text(json.dumps(response))
