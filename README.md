@@ -1,6 +1,6 @@
 # SafeUAE - Real-Time Public Safety Coordination System
 
-SafeUAE is a project meant to be as a contribution to SambaNova Hackathon by mr. Pastifier, mr. Martin Lumibao, and I from 42 Abu Dhabi.
+SafeUAE is a project meant to be as a contribution to SambaNova Hackathon by me from 42 Abu Dhabi.
 
 ## Overview
 AI-powered emergency response system using multiple collaborating agents for:
